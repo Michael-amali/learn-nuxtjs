@@ -4,12 +4,12 @@
     <div class="wrapper">
       <LargeCardDisplay
         v-for="cardInfo in largeCardInfo"
-        :key="cardInfo.id"
+        :key="cardInfo.id + Math.random()"
         :cards-section="cardInfo"
       />
       <SmallCardDisplay
         v-for="cardInfo in smallCardSections"
-        :key="cardInfo.id"
+        :key="cardInfo.id + Math.random()"
         :cards-section="cardInfo"
       />
     </div>
