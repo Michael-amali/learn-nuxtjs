@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Hero />
+    <LazyHydrate when-visible>
+      <Hero />
+    </LazyHydrate>
     <div class="wrapper">
       <LargeCardDisplay
         v-for="cardInfo in largeCardInfo"
@@ -17,9 +19,12 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import { largeCardSections, smallCardSections } from '@/assets/data.js'
+
 export default {
   name: 'IndexPage',
+  components: { LazyHydrate },
   data () {
     return {
       largeCardInfo: largeCardSections,
