@@ -1,8 +1,9 @@
 
-
 <template>
   <div>
-    <b-button id="show-btn" @click="showModal">Rent</b-button>
+    <b-button id="show-btn" @click="showModal">
+      Rent
+    </b-button>
 
     <b-modal ref="my-modal" hide-footer title="Using Component Methods">
       <div class="calendar-container">
@@ -16,33 +17,39 @@
           is-range
         />
       </div>
-      <b-button class="mt-3" variant="outline-danger" block @click="() => {
-        addItem(product.id)  
-        hideModal()
-      }">Order</b-button>
+      <b-button
+        class="mt-3"
+        variant="outline-danger"
+        block
+        @click="() => {
+          addItem(product.id)
+          hideModal()
+        }"
+      >
+        Order
+      </b-button>
     </b-modal>
   </div>
 </template>
 
 <script>
-import {mapMutations} from "vuex"
-  export default {
-    props: ['product'],
-    methods: {
-      showModal() {
-        this.$refs['my-modal'].show()
-      },
-      hideModal() {
-        this.$refs['my-modal'].hide()
-      },
-      toggleModal() {
-        this.$refs['my-modal'].toggle('#toggle-btn')
-      },
-      ...mapMutations(['addItem']),
-    }
+import { mapMutations } from 'vuex'
+export default {
+  props: ['product'],
+  methods: {
+    showModal () {
+      this.$refs['my-modal'].show()
+    },
+    hideModal () {
+      this.$refs['my-modal'].hide()
+    },
+    toggleModal () {
+      this.$refs['my-modal'].toggle('#toggle-btn')
+    },
+    ...mapMutations(['addItem'])
   }
+}
 </script>
-
 
 <style scoped>
     button {
@@ -70,4 +77,3 @@ import {mapMutations} from "vuex"
       padding: 0.5rem
     }
 </style>
-
